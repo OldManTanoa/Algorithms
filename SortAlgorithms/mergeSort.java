@@ -3,7 +3,13 @@ package SortAlgorithms;
 public class mergeSort {
     
     public static void main(String[] args) {
+        int[] A = new int[] {1, 23, 6, 3, 4, 38 ,65, 34, 65, 33, 5, 9, 12, 10, 93};
 
+        mergeSort(A);
+
+        for (int i = 0; i < A.length; i++) {
+            System.out.print(A[i] +" ");
+        }
     }
 
     public static void mergeSort(int[] A) {
@@ -17,7 +23,7 @@ public class mergeSort {
     }
 
     public static void mergeSort(int[] A, int left, int right) {
-        if(left < right) {
+        if(left < right-1) {
             int middle = (int) Math.floor((left+right)/2);
 
             mergeSort(A, left, middle);
@@ -52,6 +58,10 @@ public class mergeSort {
             res[k] = A[j];
             j++;
             k++;
+        }
+
+        for (int l = 0; l < res.length; l++) {
+            A[l+left] = res[l];
         }
     }
 }
